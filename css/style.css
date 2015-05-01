@@ -11,6 +11,7 @@ body {
     background: url(images/bg.png);
     color: #333333;
     font: 400 20px / 30px Calibri;
+    font-family: Calibri, sans-serif;
     padding: 20px;
 }
 
