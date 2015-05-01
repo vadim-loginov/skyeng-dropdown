@@ -13,6 +13,7 @@ angular.module('app', [])
     .directive('dropdown', ['config', '$http', function (config, $http) {
         return {
             restrict: 'E',
+            scope: {},
             template: '<button class="dropdown">\n    <span>San Francisco</span>\n</button>\n<div class="options">\n    <div class="option" ng-repeat="option in options.list" ng-bind="option" ng-click="optionChosen(option)"></div>\n</div>',
             link: function (scope, element, attrs) {
                 // options - объект с массивом вопросов и правильным ответом
