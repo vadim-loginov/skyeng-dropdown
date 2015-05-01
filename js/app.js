@@ -51,15 +51,17 @@ angular.module('app', [])
                     } else if (e.which === 40) {
                         // список уже был открыт, значит нужно перенести фокус вниз
                         focusDown();
+                        // Предотвратим прокручивание страницы при нажатии стрелки ввер
+                        e.preventDefault();
                     } else if (e.which === 38 && isDropdownOpened()) {
                         // переносим фокус вверх
                         focusUp();
+                        // Предотвратим прокручивание страницы при нажатии стрелки вниз
+                        e.preventDefault();
                     }
                     else if (e.which === 27) {
                         closeDropdown();
                     }
-                    // Предотвратим прокручивание страницы при нажатии стрелок вверх/вниз
-                    e.preventDefault();
                 });
                 element.on('mouseup', toggleDropdown);
 
