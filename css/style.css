@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box
+}
+
+@font-face {
+    font-family: 'Calibri';
+    src: url('../fonts/Calibri.ttf');
+}
+
+body {
+    background: url(images/bg.png);
+    color: #333333;
+    font: 400 20px / 30px Calibri;
+    padding: 20px;
+}
+
+.window {
+    background: white;
+    border-radius: 6px;
+    padding: 68px 28px;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* Dropdown button */
+
+dropdown {
+  position: relative;
+}
+
+.dropdown {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAGCAYAAAAVMmT4AAAAsklEQVQYV2M0MjJa+f///2nnz58/yIADGBoa2jMyMmYxGhgYmDIxMa3/9+9f4oULF3ajqwfKuwLl5wPlAxlBkvr6+oYsLCybgMyMs2fPboVpACr0YmZmnvnnzx+/ixcvngcrBgE9PT0dVlbWbUAnFZw7d24d0HmBQKsn/v792+vSpUtXQGrgiqEa1IE27ASyNwMV+gFpd6BNN2AGoigGCerq6ioBbZgPNDHx8uXL95D9AADXc0ELyEpSUQAAAABJRU5ErkJggg==) no-repeat right center;
+    background-color: transparent;
+    background-origin: content-box;
+    vertical-align: middle;
+    padding: 0px 10px 0px 6px;
+    line-height: 25px;
+    min-height: 27px;
+    min-width: 50px;
+}
+
+dropdown .dropdown span {
+    margin-right: 25px;
+}
+
+.dropdown:hover,
+.dropdown:focus {
+    border-color: #aaa;
+    outline: none;
+}
+
+.dropdown:active {
+    border-color: #aaa;
+    background-color: #f5f5f5;
+    outline: none;
+}
+
+.dropdown.right {
+    background-color: #add166;
+    border-color: #add166;
+}
+
+.dropdown.wrong {
+    background-color: #f58e8e;
+    border-color: #f58e8e;
+}
+
+.dropdown.right,
+.dropdown.wrong {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAGCAYAAAAVMmT4AAAAjUlEQVQYV2P8////SgYGhmmMjIwHgTRWAFRjD5TIYgQyTIGM9UCcCNSwG101UN4VKDYfiAMZQZJAAUMgtQmIM4AatsI0AMW9gOyZQOwHFD8PVgzVoAOktwFxAVBiHVBhIJA9EYi9gPwrIDVwxVAN6kB6JxBvBpkGxO5AhTdgBqIohmpQgroR5Id7yH4AAJI1MN/YwyK7AAAAAElFTkSuQmCC);
+    color: #ffffff;
+}
+
+.dropdown.wrong:hover {
+    border-color: #db7f7f;
+}
+/* prevents button text from shifting during click in IE */
+button:active span,
+button:focus span
+{
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+
+dropdown .options {
+    display: none;
+    position: absolute;
+    top: 31px;
+    left: 0;
+    width: 156px;
+    background: white;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    box-shadow: 0px 0px 18px 0.00px #ffffff;
+}
+
+.options.opened {
+    display: block;
+}
+
+.options .option {
+    padding: 2px 7px 2px 5px;
+    cursor: pointer;
+    /* для пустышки, ведь в ней не будет текста */
+    min-height: 34px;
+}
+
+.options .option.selected,
+.options .option:hover {
+    background: #ffffd9;
+}
+
+.options .option.chosen {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAQCAYAAAAbBi9cAAABbUlEQVQ4T6WSP0jDQBSHexaydhEn3VyEVEjj4NKliIubi4PQSYSKBd06OAsu/gOpsx11ctBNEIeqkMREwb2ru0pDEr+TC6Sa2qYGjnd3ud93v/feidw/Pl3XpzRNq9q2vStG5ZRKpTLaCyHERBAESyOBgKwAOQOiEfcsy2pkBgHZRHwEZIzYBLIhs8oEArIF4EAKoyi6pDbLTINMIMMw6kCkE3n5A6OCm/e4xkM5Mk2zhoMTBemEYTjnOM5bslEDQaSziqAlIcC6dKjsuu7jz25/g7hxzff9e8/zXpIHgFRYX6vu5HBSw8lp2pMRHJ7lxxOji2CHvPeZh8CLxDtGQRW3RXGr/d5d7OiYA3UluCU2gJ4TJ5XwmTifLG5qamzmcXBFXEy58YPamLh57eemp/2ACgjaOJlJCtjbBnL4F6QHJBfUaxpQm+m4SvMGyALzKBNIweJOfbIuUpfOIMgvR7EAZ+s4ywNpDgORZ74AHB2K7AxVyWgAAAAASUVORK5CYII=);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-origin: content-box;
+}
