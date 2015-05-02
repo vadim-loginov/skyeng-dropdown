@@ -12,7 +12,8 @@ body {
     color: #333333;
     font: 400 20px / 30px Calibri;
     font-family: Calibri, sans-serif;
-    padding: 20px;
+    padding: 10px;
+    padding-bottom: 100px;
 }
 
 .window {

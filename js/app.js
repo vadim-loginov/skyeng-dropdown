@@ -9,8 +9,12 @@ angular.module('app', [])
         ajaxUrl: 'servermock/directives.php'
     })
 
+    .config(['$logProvider', function ($logProvider) {
+        $logProvider.debugEnabled(true);
+    }])
+
     // Директива для кнопки с выпадающим списком (варианты ответа)
-    .directive('dropdown', ['config', '$http', function (config, $http) {
+    .directive('dropdown', ['config', '$http', '$log', function (config, $http, $log) {
         return {
             restrict: 'E',
             scope: {},
@@ -25,19 +29,20 @@ angular.module('app', [])
 
                 // Для работы нам обязательно нужен id, так сервер будет узнавать директиву
                 if (!attrs.id) {
-                    console.log('You missed id for the dropdown directive!');
+                    $log.error('You missed id for the dropdown directive!');
                     return;
                 }
                 // Загружаем данные о вариантах ответа
                 $http.get(config.ajaxUrl + '?id=' + attrs.id)
                     .success(function(data) {
+                        $log.debug('Dropdown id=' + attrs.id, data);
                         // Создаём пустышку
                         data.list.unshift(' ');
                         scope.options = data;
                         buttonCaption.text('');
                     })
                     .error(function() {
-                        console.log('Error while getting data from server (dropdown id=' + attrs.id + ')');
+                        $log.error('Error while getting data from server (dropdown id=' + attrs.id + ')');
                     });
                 // Обработчик для открытия выпадающего меню
                 button.on('keydown', function (e) {
@@ -113,7 +118,7 @@ angular.module('app', [])
                         angular.element(dropdown.children()[scope.options.list.indexOf(option)]).addClass('chosen');
                     }
 
-                    console.log('Dropdown ' +  attrs.id + ': chosen option "' + option + '"');
+                    $log.debug('Dropdown ' +  attrs.id + ': chosen option "' + option + '"');
                 };
 
             }
